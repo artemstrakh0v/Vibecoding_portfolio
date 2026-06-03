@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-accent: #e60026;
+  --font-headline: "Khand", sans-serif;
+  --font-body: "Switzer", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-black);
+  background-color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-headline {
+  font-family: var(--font-headline);
+}
