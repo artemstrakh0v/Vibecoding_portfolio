@@ -11,13 +11,22 @@ const navLinks = [
 
 export default function Header() {
   const pathname = usePathname();
+  const isHome = pathname === "/";
 
   return (
-    <header className="border-b border-black/10">
+    <header
+      className={
+        isHome
+          ? "border-b border-white/10 bg-black text-white"
+          : "border-b border-black/10 bg-white text-black"
+      }
+    >
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-8 px-6 py-6 md:px-10 md:py-8">
         <Link
           href="/"
-          className="font-headline text-xl uppercase tracking-wide text-black transition-colors hover:text-accent md:text-2xl"
+          className={`font-headline text-xl uppercase tracking-wide transition-colors hover:text-accent md:text-2xl ${
+            isHome ? "text-white" : "text-black"
+          }`}
         >
           Artem Strakhov
         </Link>
@@ -33,7 +42,9 @@ export default function Header() {
                     className={`text-sm transition-colors md:text-base ${
                       isActive
                         ? "text-accent"
-                        : "text-black hover:text-accent"
+                        : isHome
+                          ? "text-white/80 hover:text-accent"
+                          : "text-black hover:text-accent"
                     }`}
                     aria-current={isActive ? "page" : undefined}
                   >
